@@ -8,7 +8,7 @@ namespace AutoCheck.ConsoleApp.Models
         public int Ano { get; set; }
         public int Quilometragem { get; set; }
         
-        public List<ItemVistoria> VistoriaRealizada { get; set; }
+        public List<ItemVistoria> VistoriaRealizada { get; set; } = new List<ItemVistoria>();
         
         //Construtor
         public Veiculo(string marca, string modelo, int ano, int quilometragem )
