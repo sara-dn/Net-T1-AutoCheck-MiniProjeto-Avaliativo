@@ -1,6 +1,6 @@
 namespace AutoCheck.ConsoleApp.Models
 {
-    public class Veiculo
+    public abstract class Veiculo
     {
         //Atributos
         public string Marca { get; set; }
