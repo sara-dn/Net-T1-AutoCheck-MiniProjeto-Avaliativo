@@ -1,4 +1,6 @@
 using System.Reflection;
+using AutoCheck.ConsoleApp.Services;
+using Microsoft.VisualBasic;
 
 namespace AutoCheck.ConsoleApp.Models
 {
@@ -9,8 +11,11 @@ namespace AutoCheck.ConsoleApp.Models
         public string Modelo { get; set; }
         public int Ano { get; set; }
         public int Quilometragem { get; set; }
+        /* public MotorVistoria vistoria { get; set; } = new(); */
         
         public List<ItemVistoria> VistoriaRealizada { get; set; } = new List<ItemVistoria>();
+
+        public MotorVistoria Vistoria {get;set;}
         
         //Construtor
         public Veiculo(string marca, string modelo, int ano, int quilometragem )
@@ -40,6 +45,11 @@ namespace AutoCheck.ConsoleApp.Models
             "Luzes de Sinalização e Iluminação",
             "Estado de Conservação dos Pneus"
             };
+        }
+
+        public void IniciarVistoria()
+        {
+             this.Vistoria = new MotorVistoria(VistoriaRealizada);
         }
     }
 }

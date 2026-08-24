@@ -1,4 +1,7 @@
-﻿using AutoCheck.ConsoleApp.Models;
+﻿using System.Collections;
+using AutoCheck.ConsoleApp.Models;
+using AutoCheck.ConsoleApp.Services;
+using Microsoft.VisualBasic;
 
 var carro1 = new Carro("Chevrolet", "Impala", 67, 666666, 4);
 var moto1 = new Moto("toyota", "Kawazaki", 2005, 2000, 80);
@@ -28,3 +31,17 @@ Console.WriteLine($"Item: {item1.Nome}, Status: {item1.Status}");
 
 var item2 = new ItemVistoria("Item 2", "erradu, eu sei eu sei");
 Console.WriteLine($"Item: {item2.Nome}, Status: {item2.Status}");
+
+//teste MotorVistoria
+Console.WriteLine("********TESTE DE MotorVistoria********");
+foreach(var itens in carro1.ObterChecklistObrigatorio())
+{
+    Console.WriteLine($"Avalie '{itens}' (bom),(regular),(ruim):");
+    carro1.AdicionarItemVistoriado(itens, Console.ReadLine());
+}
+carro1.IniciarVistoria();
+List<MotorVistoria> VistoriasRealizadas = new();
+
+VistoriasRealizadas.Add(carro1.Vistoria);
+
+Console.WriteLine($"acão corporativa: {VistoriasRealizadas[0].AcaoCorporativa}");

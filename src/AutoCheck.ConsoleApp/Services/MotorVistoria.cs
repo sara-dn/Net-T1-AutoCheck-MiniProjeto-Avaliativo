@@ -2,6 +2,7 @@ using System.Net.Security;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
+using AutoCheck.ConsoleApp.Models;
 
 namespace AutoCheck.ConsoleApp.Services
 {
@@ -12,23 +13,25 @@ namespace AutoCheck.ConsoleApp.Services
         public double Percentual {get; private set;}
         public string StatusAprovacao {get; private set;}
         public string AcaoCorporativa {get; private set;}
-        public MotorVistoria(int totaldeitems, int notaobitida)
-        {
-            this.NotaMaxima = totaldeitems*10;
-            this.NotaObtida = notaobitida;
+        public List<ItemVistoria> Vistoria {get; set;}
 
-            //calculo do percentaul aprovação
-            this.Percentual = (NotaObtida/NotaMaxima)*100;        
-        }
-        
-        public MotorVistoria()
+         public MotorVistoria(List<ItemVistoria> vistoria)
         {
+            //preencher list Vistoria
+            this.Vistoria = new List<ItemVistoria> (vistoria);
+            //calcular notas
+            this.NotaMaxima = CalcularNotaMaxima();
+            this.NotaObtida = CalcularNotaObitida();
+            //calculo do percentaul aprovação
+            this.Percentual = ((double)NotaObtida/NotaMaxima)*100;
+
+            //status de aprovação e acão corporativa
             if(Percentual >= 90)
             {
                 this.StatusAprovacao = "Aprovado com Excelência";
                 this.AcaoCorporativa = "Liberado para compra/revenda imediata.";
             }
-            if(Percentual >= 60 && Percentual <= 89)
+            else if(Percentual >= 60 && Percentual <= 89)
             {
                 this.StatusAprovacao = "Aprovado com Apontamentos";
                 this.AcaoCorporativa = "Exige desconto na compra para reparos da oficina.";
@@ -37,8 +40,28 @@ namespace AutoCheck.ConsoleApp.Services
             {
                 this.StatusAprovacao = "Reprovado na Vistoria";
                 this.AcaoCorporativa = "Veículo recusado pela concessionária.";
-            }
+            }      
         }
         
+        //métodos
+        private int CalcularNotaMaxima()
+        {
+            return (this.Vistoria.Count*10);
+        }
+        private int CalcularNotaObitida()
+        {
+            int nota = 0;
+            foreach(var checklist in Vistoria)
+            {
+                if(checklist.Status == "bom")
+                {
+                    nota += 10;
+                }if(checklist.Status == "regular")
+                {
+                    nota += 5;
+                }
+            }
+            return nota;
+        }
     }
 }
