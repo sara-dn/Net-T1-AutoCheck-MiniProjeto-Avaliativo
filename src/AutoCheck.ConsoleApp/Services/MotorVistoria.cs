@@ -63,5 +63,22 @@ namespace AutoCheck.ConsoleApp.Services
             }
             return nota;
         }
+
+        public void RelatorioDeVistoria()
+        {
+            Console.WriteLine("                                                               ");
+            Console.WriteLine("                   Relatorio de Vistoria");
+            Console.WriteLine("=                                                              ");
+            Console.WriteLine($"Status de Aprovação: {this.StatusAprovacao}");
+            Console.WriteLine($"Ação Corporativa Recomendada: {this.AcaoCorporativa}");
+
+            Console.WriteLine("=                                                              ");
+            Console.WriteLine("                   Avalição dos Items Inspecionados");
+            Console.WriteLine("                                                               ");
+            foreach(var item in Vistoria)
+            {
+                Console.WriteLine($"Item: {item.Nome} || Pontuação: {item.Status} || Pendencia: {item.Pendencia}");
+            }
+        }
     }
 }

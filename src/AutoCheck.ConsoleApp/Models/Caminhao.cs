@@ -24,5 +24,12 @@ namespace AutoCheck.ConsoleApp.Models
             
             return checklist;
         }
+
+        public override void Relatorio()
+        {
+            base.Relatorio();
+            Console.WriteLine($"Eixos: {this.QuantidadeDeEixos}");
+            Console.WriteLine($"Capcacidade de Carga: {this.CapacidadeCargaToneladas}KGs");
+        }
     }
 }

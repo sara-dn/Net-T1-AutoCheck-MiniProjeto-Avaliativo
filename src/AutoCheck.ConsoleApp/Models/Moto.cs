@@ -22,5 +22,11 @@ namespace AutoCheck.ConsoleApp.Models
             
             return checklist;
         }
+
+        public override void Relatorio()
+        {
+            base.Relatorio();
+            Console.WriteLine($"Cilindradas: {this.Cilindradas} CC");
+        }
     }
 }

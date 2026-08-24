@@ -24,5 +24,10 @@ namespace AutoCheck.ConsoleApp.Models
 
             return checklist;
         }
+        public override void Relatorio()
+        {
+            base.Relatorio();
+            Console.WriteLine($"Portas: {this.QuantidadeDePortas}");
+        }
     }
 }
