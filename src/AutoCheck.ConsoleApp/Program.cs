@@ -22,3 +22,9 @@ foreach (var checklist in caminhao1.ObterChecklistObrigatorio())
     Console.WriteLine(checklist);
 }
 
+Console.WriteLine("********TESTE DE ItemsVistoria********");
+var item1 = new ItemVistoria("Item 1", "bom");
+Console.WriteLine($"Item: {item1.Nome}, Status: {item1.Status}");
+
+var item2 = new ItemVistoria("Item 2", "erradu, eu sei eu sei");
+Console.WriteLine($"Item: {item2.Nome}, Status: {item2.Status}");
