@@ -11,5 +11,18 @@ namespace AutoCheck.ConsoleApp.Models
             this.QuantidadeDeEixos = quantidadedeeixos;
             this.CapacidadeCargaToneladas = capacidadecargatoneladas;
         }
+
+        public override List<string> ObterChecklistObrigatorio()
+        {
+            var checklist = base.ObterChecklistObrigatorio();
+            checklist.Add("Tacógrafo");
+            checklist.Add("Sistema de Freios a Ar");
+            checklist.Add("Trava e Lona da Caçamba");
+            checklist.Add("Extintor de Incêndio (Carga A/B/C)");
+            checklist.Add("Estado dos Eixos e Paralamas");
+            checklist.Add("Faixas Refletivas de Segurança");
+            
+            return checklist;
+        }
     }
 }

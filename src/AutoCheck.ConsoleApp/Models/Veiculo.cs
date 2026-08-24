@@ -22,7 +22,20 @@ namespace AutoCheck.ConsoleApp.Models
         //Métodos
         public void AdicionarItemVistoriado(string nome, string status)
         {
-            
+            //por enquanto, acho que vai instanciar objetos da classe ItemVistoria.
+        }
+
+        public virtual List<string> ObterChecklistObrigatorio()
+        {
+            return new List<string>
+            {
+            "Nível de Óleo do Motor",
+            "Bateria e Sistema Elétrico",
+            "Documentação Regularizada",
+            "Sistema de Freios",
+            "Luzes de Sinalização e Iluminação",
+            "Estado de Conservação dos Pneus"
+            };
         }
     }
 }

@@ -11,5 +11,18 @@ namespace AutoCheck.ConsoleApp.Models
         {
             this.QuantidadeDePortas = quantidadedeportas;
         }
+
+        public  override List<string> ObterChecklistObrigatorio()
+        {
+            var checklist = base.ObterChecklistObrigatorio();
+            checklist.Add("Estepe e Macaco");
+            checklist.Add("Triângulo de Sinalização");
+            checklist.Add("Ar Condicionado Funcional");
+            checklist.Add("Cintos de Segurança e Travas");
+            checklist.Add("Funcionamento dos Limpadores de Para-brisa");
+            checklist.Add("Vidros e Retrovisores Elétricos");
+
+            return checklist;
+        }
     }
 }

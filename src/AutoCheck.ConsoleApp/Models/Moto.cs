@@ -9,5 +9,18 @@ namespace AutoCheck.ConsoleApp.Models
         {
             this.Cilindradas = cilindradas;
         }
+
+        public override List<string> ObterChecklistObrigatorio()
+        {
+            var checklist = base.ObterChecklistObrigatorio();
+            checklist.Add("Kit Transmissão/Corrente");
+            checklist.Add("Manetes de Freio/Embreagem");
+            checklist.Add("Pezinho Lateral");
+            checklist.Add("Capacete e Viseira de Proteção");
+            checklist.Add("Suspensão Dianteira e Traseira (Bengalas)");
+            checklist.Add("Espelhos Retrovisores e Guidão");
+            
+            return checklist;
+        }
     }
 }
