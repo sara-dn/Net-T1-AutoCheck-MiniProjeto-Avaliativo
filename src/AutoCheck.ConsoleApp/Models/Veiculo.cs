@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace AutoCheck.ConsoleApp.Models
 {
     public abstract class Veiculo
@@ -23,6 +25,8 @@ namespace AutoCheck.ConsoleApp.Models
         public void AdicionarItemVistoriado(string nome, string status)
         {
             //por enquanto, acho que vai instanciar objetos da classe ItemVistoria.
+            var itemVistoriado = new ItemVistoria(nome, status);
+            VistoriaRealizada.Add(itemVistoriado);
         }
 
         public virtual List<string> ObterChecklistObrigatorio()
