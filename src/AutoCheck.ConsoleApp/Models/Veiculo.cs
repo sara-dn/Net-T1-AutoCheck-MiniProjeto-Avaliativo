@@ -43,9 +43,3 @@ namespace AutoCheck.ConsoleApp.Models
         }
     }
 }
-
-/* Propriedades: Marca, Modelo, Ano, Quilometragem e List<ItemVistoria> VistoriaRealizada;
-Construtor explícito utilizando a palavra-chave this para atribuição das propriedades;
-Método AdicionarItemVistoriado(string nome, string status);
-Método virtual List<string> ObterChecklistObrigatorio() que retorna itens genéricos de inspeção (ex: "Nível de Óleo do Motor", "Bateria e Sistema Elétrico", "Documentação Regularizada").
- */
