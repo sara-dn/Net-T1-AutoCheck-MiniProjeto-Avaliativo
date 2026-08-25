@@ -27,7 +27,14 @@ namespace AutoCheck.ConsoleApp.Services
 
          public MotorVistoria(List<ItemVistoria> vistoria, string marca, string modelo, int ano, int quilometragem, int portas = 0, int cilindradas = 0, int quantidadedeeixos = 0, double capacidadecargatoneladas = 0)
         {
-            
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.Ano = ano;
+            this.Quilometragem = quilometragem;
+            this.QuantidadeDePortas = portas;
+            this.Cilindradas = cilindradas;
+            this.QuantidadeDeEixos = quantidadedeeixos;
+            this.CapacidadeCargaToneladas = capacidadecargatoneladas;
             //preencher list Vistoria
             this.Vistoria = new List<ItemVistoria> (vistoria);
             //calcular notas
