@@ -24,10 +24,10 @@ namespace AutoCheck.ConsoleApp.Models
 
             return checklist;
         }
-        public override void Relatorio()
+
+        public override void IniciarVistoria()
         {
-            base.Relatorio();
-            Console.WriteLine($"Portas: {this.QuantidadeDePortas}");
+             this.Vistoria = new Services.MotorVistoria(VistoriaRealizada, this.Marca, this.Modelo, this.Ano, this.Quilometragem, this.QuantidadeDePortas);
         }
     }
 }

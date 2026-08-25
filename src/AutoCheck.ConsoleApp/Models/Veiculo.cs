@@ -47,19 +47,9 @@ namespace AutoCheck.ConsoleApp.Models
             };
         }
 
-        public void IniciarVistoria()
+        public virtual void IniciarVistoria()
         {
-             this.Vistoria = new MotorVistoria(VistoriaRealizada);
-        }
-
-        public virtual void Relatorio()
-        {
-            Console.WriteLine("===================================================================");
-            Console.WriteLine("==========================DADOS DO VEICULO=========================");
-            Console.WriteLine($"Marca: {this.Marca}");
-            Console.WriteLine($"Modelo: {this.Modelo}");
-            Console.WriteLine($"Ano: {this.Ano}");
-            Console.WriteLine($"Quilometragem: {this.Quilometragem}KMs");
+             this.Vistoria = new MotorVistoria(VistoriaRealizada, this.Marca, this.Modelo, this.Ano, this.Quilometragem);
         }
     }
 }

@@ -15,8 +15,19 @@ namespace AutoCheck.ConsoleApp.Services
         public string AcaoCorporativa {get; private set;}
         public List<ItemVistoria> Vistoria {get; set;}
 
-         public MotorVistoria(List<ItemVistoria> vistoria)
+        //atributos para proposito de relatorio
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public int Ano { get; set; }
+        public int Quilometragem { get; set; }
+        public int QuantidadeDePortas {get; set;}
+        public int Cilindradas {get; set;}
+        public int QuantidadeDeEixos {get; set;}
+        public double CapacidadeCargaToneladas {get; set;}
+
+         public MotorVistoria(List<ItemVistoria> vistoria, string marca, string modelo, int ano, int quilometragem, int portas = 0, int cilindradas = 0, int quantidadedeeixos = 0, double capacidadecargatoneladas = 0)
         {
+            
             //preencher list Vistoria
             this.Vistoria = new List<ItemVistoria> (vistoria);
             //calcular notas
@@ -66,6 +77,28 @@ namespace AutoCheck.ConsoleApp.Services
 
         public void RelatorioDeVistoria()
         {
+            Console.WriteLine("===================================================================");
+            Console.WriteLine("==========================DADOS DO VEICULO=========================");
+            Console.WriteLine($"Marca: {this.Marca}");
+            Console.WriteLine($"Modelo: {this.Modelo}");
+            Console.WriteLine($"Ano: {this.Ano}");
+            Console.WriteLine($"Quilometragem: {this.Quilometragem}KMs");
+            if(this.QuantidadeDePortas > 0)
+            {
+                Console.WriteLine($"Quantidade de Portas: {this.QuantidadeDePortas}");
+            }
+            if(this.Cilindradas > 0)
+            {
+                Console.WriteLine($"Cilindradas: {this.Cilindradas}CC");
+            }
+            if(this.QuantidadeDeEixos > 0)
+            {
+                Console.WriteLine($"Quantidade de Eixos: {this.QuantidadeDeEixos}");
+            }
+            if(this.CapacidadeCargaToneladas > 0)
+            {
+                Console.WriteLine($"Capacidade de Carga: {this.CapacidadeCargaToneladas} Ton.");
+            }
             Console.WriteLine("                                                               ");
             Console.WriteLine("                   Relatorio de Vistoria");
             Console.WriteLine("=                                                              ");

@@ -24,12 +24,10 @@ namespace AutoCheck.ConsoleApp.Models
             
             return checklist;
         }
-
-        public override void Relatorio()
+        
+        public override void IniciarVistoria()
         {
-            base.Relatorio();
-            Console.WriteLine($"Eixos: {this.QuantidadeDeEixos}");
-            Console.WriteLine($"Capcacidade de Carga: {this.CapacidadeCargaToneladas}KGs");
+             this.Vistoria = new Services.MotorVistoria(VistoriaRealizada, this.Marca, this.Modelo, this.Ano, this.Quilometragem, 0, 0, this.QuantidadeDeEixos, this.CapacidadeCargaToneladas);
         }
     }
 }
